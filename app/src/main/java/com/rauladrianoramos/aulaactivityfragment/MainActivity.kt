@@ -2,6 +2,7 @@ package com.rauladrianoramos.aulaactivityfragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("ciclo_vida", "onCreate")
         setContentView(R.layout.activity_main)
 
         buttonAbrir = findViewById(R.id.button_abrir)
@@ -22,5 +24,38 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("ciclo_vida", "onStart")
+        //carregar dados
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("ciclo_vida", "onResume")
+
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("ciclo_vida", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("ciclo_vida", "onStop")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("ciclo_vida", "onRestart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("ciclo_vida", "onDestroy")
     }
 }
