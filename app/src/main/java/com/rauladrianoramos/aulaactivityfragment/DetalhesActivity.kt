@@ -1,5 +1,6 @@
 package com.rauladrianoramos.aulaactivityfragment
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -25,6 +26,19 @@ class DetalhesActivity : AppCompatActivity() {
 
             val resultado = "Serie: $serie - classificacao: $classificacao - avaliacao: $avaliacao "
             textSerie.text = resultado
+
+
+            val filme = if (Build.VERSION.SDK_INT >=  Build.VERSION_CODES.TIRAMISU) { //versao >= 33
+                //bundle.getSerializable("filme", Filme::class.java)  --> Serialize
+                bundle.getParcelable("filme", Filme::class.java)
+
+            } else {
+                //bundle.getSerializable("filme") as Filme  --> Serialize
+                bundle.getParcelable("filme")
+
+            }
+
+            textSerie.text = "${filme?.nome} - ${filme?.distribuidor}"
         }
 
         buttonFechar.setOnClickListener {

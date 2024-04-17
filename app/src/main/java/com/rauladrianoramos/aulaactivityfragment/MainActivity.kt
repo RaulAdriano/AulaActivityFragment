@@ -25,6 +25,17 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("classificacao", 5)
             intent.putExtra("avaliacao", 9.5)
 
+            val filme = Filme(
+                "Sem Limites",
+                "teste",
+                4.8,
+                "Raul",
+                "Netflix"
+            )
+
+            //filme tem que ser serializable
+            intent.putExtra("filme",filme)
+
             startActivity(intent)
 
         }
